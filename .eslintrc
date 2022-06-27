@@ -11,6 +11,7 @@
         "react-hooks"
     ],
     "rules": {
+        "no-undef": "off",
         "prettier/prettier": "error",
         "react/react-in-jsx-scope": "off"
     }
