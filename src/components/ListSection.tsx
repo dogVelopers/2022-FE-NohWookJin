@@ -13,7 +13,7 @@ interface Fields {
 }
 
 export default function ListSection() {
-  const [todo, setTodo] = useState<Records[]>([]);
+  const [list, setList] = useState<Records[]>([]);
 
   // ComponentDidMount(=useEffect) => API 호출
 
@@ -33,7 +33,7 @@ export default function ListSection() {
   // 2. useEffect Hook 외부에서 정의
   const getRes = async () => {
     const res = await instance.get('/todo');
-    setTodo(res.data.records);
+    setList(res.data.records);
   };
   useEffect(() => {
     getRes();
@@ -41,7 +41,7 @@ export default function ListSection() {
 
   return (
     <section>
-      {todo.map(list => {
+      {list.map(list => {
         return <li key={list.id}>{list.fields.name}</li>;
       })}
     </section>
