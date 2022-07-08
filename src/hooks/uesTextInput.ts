@@ -1,4 +1,4 @@
-// custon hooks
+// custom hooks
 // hook은 무조건 use로 시작
 // tsx : jsx처럼 컴포넌트일 때
 // ts : 랜더링하는 컴포넌트가 아닌 로직
@@ -21,7 +21,11 @@ function useTextInput({ initialValue = '' }: Props) {
     setValue(e.target.value);
   }
 
-  return { value, onChange };
+  function clearValue() {
+    setValue('');
+  }
+
+  return { value, onChange, clearValue };
   // 오브젝트로 리턴
 }
 
