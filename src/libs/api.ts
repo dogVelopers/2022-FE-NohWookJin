@@ -43,3 +43,5 @@ function responseRejectedInterceptor(error: AxiosError) {
 }
 
 instance.interceptors.response.use(responseFulfilledInterceptor, responseRejectedInterceptor);
+
+// 코드 줄 찾을때 cmd+shift+f
