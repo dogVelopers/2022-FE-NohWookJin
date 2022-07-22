@@ -1,11 +1,14 @@
 import { FormEvent } from 'react';
 import useTextInput from '../hooks/uesTextInput';
+import styled from 'styled-components';
+import useTodos from '../hooks/api/useTodos';
 
-interface Props {
-  createTodo: (value: string) => void;
-}
+// interface Props {
+//   createTodo: (value: string) => void;
+// }
 
-export default function InputSection({ createTodo }: Props) {
+export default function InputSection() {
+  const { createTodo } = useTodos();
   const { value, onChange, clearValue } = useTextInput({});
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -15,16 +18,14 @@ export default function InputSection({ createTodo }: Props) {
   }
 
   return (
-    <section>
-      <form onSubmit={onSubmit}>
-        <input value={value} onChange={onChange} />
-        <button>저장</button>
-      </form>
-    </section>
+    <StyledSection>
+      <StyledForm onSubmit={onSubmit}>
+        <StyledInput placeholder="오늘도 화이팅! 🏃" value={value} onChange={onChange} />
+        <StyledButton>저장</StyledButton>
+      </StyledForm>
+    </StyledSection>
   );
 }
-<<<<<<< Updated upstream
-=======
 
 const StyledSection = styled.section`
   margin-top: 1rem;
@@ -35,7 +36,7 @@ const StyledForm = styled.form`
 `;
 const StyledInput = styled.input`
   width: 45vw;
-  margin: 0rem 0.2rem;
+  margin: 0 1rem;
   padding: 0.5rem 0.4rem;
   border: none;
   border-radius: 0.2rem;
@@ -44,5 +45,5 @@ const StyledInput = styled.input`
 const StyledButton = styled.button`
   border: none;
   background-color: rgb(240, 240, 180);
+  margin-right: 0.5rem;
 `;
->>>>>>> Stashed changes

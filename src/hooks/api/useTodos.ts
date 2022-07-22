@@ -1,13 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { todosState } from '../../store/todos';
+
 import { instance } from '../../libs/api';
+
+// const [값, 저장하는 콜백] = useState;
+// const [전역값, 정하는 콜백] = useRecoilState;
+// const 저장하는 콜백 = useSetRecoilState
 
 interface IGetTodos {
   records: ITodo[];
 }
 
 export default function useTodos() {
-  const [todos, setTodos] = useState<ITodo[]>([]);
+  // const [todos, setTodos] = useState<ITodo[]>([]);
   // 로딩 state : 로딩중이 아닌 것으로 초기 세팅
+
+  const [todos, setTodos] = useRecoilState(todosState);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function refreshTodos() {

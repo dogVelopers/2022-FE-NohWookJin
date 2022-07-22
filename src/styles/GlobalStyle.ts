@@ -7,6 +7,6 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     html {
-        background-color: blue;
+        background-color: white;
     }
 `;
