@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { instance } from '../libs/api';
 import styled from 'styled-components';
+import useTodos from '../hooks/api/useTodos';
 
 export default function Detail() {
   const [todo, setTodo] = useState<ITodo | null>(null);
 
   const { todoId } = useParams();
+  const { isLoading } = useTodos();
 
   useEffect(() => {
     async function saveTodo() {
@@ -36,6 +38,7 @@ export default function Detail() {
           {/* optional chaning */}
         </StyledMain>
       </StyledSection>
+      {isLoading && <StyledLoader />}
     </StyledContainer>
   );
 }
@@ -115,4 +118,15 @@ const StyledTime = styled.p`
   font-size: 0.8rem;
   text-align: center;
   color: rgba(0, 0, 0, 0.4);
+`;
+
+const StyledLoader = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: lightgray;
+  opacity: 0.5;
 `;
