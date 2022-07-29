@@ -32,7 +32,7 @@ export default function Detail() {
         </StyledHeader>
         <StyledMain>
           {/* <p>{todoId}</p> */}
-          <StyledP>🏃 열심히 달려서 목표를 달성해요! 🏃</StyledP>
+          <StyledP>🏃 열심히 달리고 달려서 목표를 달성해요! 🏃</StyledP>
           <StyledList>{todo?.fields.name}</StyledList>
           <StyledTime>작성 시간 : {todo?.createdTime}</StyledTime>
           {/* optional chaning */}
