@@ -11,7 +11,7 @@ export default function Main() {
   return (
     <>
       <StyledMain>
-        <h2>ToDo 🐶</h2>
+        <h2>ToDo123 🐶</h2>
         <ListSection />
         <InputSection />
         {/* 삼항연산자  */}
