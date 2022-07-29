@@ -28,7 +28,9 @@ export default function ListSection() {
         <Styledp key={todo.id}>
           {todo.fields.name}
           <StyledButton onClick={() => onClickDeleteBtn(todo.id)}>X</StyledButton>
-          <Link to={`/todos/${todo.id}`}>(자세히 보기)</Link>
+          <Link to={`/todos/${todo.id}`}>
+            <StyledLink> click </StyledLink>
+          </Link>
         </Styledp>
       ))}
     </StyledSection>
@@ -42,6 +44,9 @@ const StyledSection = styled.section`
   margin-top: 1rem;
   width: 50vw;
   height: 100vh;
+  a {
+    text-decoration: none;
+  }
 `;
 
 const Styledp = styled.p`
@@ -53,4 +58,10 @@ const StyledButton = styled.button`
   float: right;
   border: none;
   background-color: rgb(240, 240, 180);
+`;
+const StyledLink = styled.span`
+  color: black;
+  margin-right: 1rem;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 0.7rem;
 `;
